@@ -23,7 +23,7 @@ Connecting to the Ec2 instance through Gitbash
 
 
 
-## Step1(Installing Nginix Sever):
+## Step1(Installing Nginx Sever):
 1
 We first update then install Nginx server by using the code below 
 
@@ -53,7 +53,37 @@ Checking through a browswer http://18.234.210.235:80
 ![nginx ob browser](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/ac09890b-8927-4ef1-b687-0c7f9dce62ad)
 
 
+## Step2( Istallin MYSQL):
+
+1
+Install MYSQL with `sudo apt install mysql_sever`
+
+![install msql](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/784b0f0d-240e-4ffb-a6eb-909c11611a0e)
+
+2
+Log into MySQL
+
+![intosql](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/442d0ef7-5179-4d52-97c8-26b41f8bb94f)
+
+3
+Set a password for root User
+`ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'theghost';`
+
+![alterpass](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/0e8fc4ca-48c9-486f-bbbe-1f43fb239e4e)
+
+4
+Running a security script that removes some insecure default settings and lockdown access to your database
+This script is done by this code 
+
+`sudo mysql_secure_installation`
+![securescript](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/13b9c26d-c054-4a34-bed4-af32a42029d1)
+
+I left everything at default settings, apart from the password security level i choose low
 
 
- 
+
+
+
+
+
 
