@@ -23,4 +23,37 @@ Connecting to the Ec2 instance through Gitbash
 
 
 
-## Step1(
+## Step1(Installing Nginix Sever):
+1
+We first update then install Nginx server by using the code below 
+
+__`sudo apt update`
+`sudo apt install nginx`__
+
+![installing nginx](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/659c5264-3728-409d-9717-7efd0ae3273d)
+
+2
+Verify that nginx was succesfully installed by using this code.
+
+__`sudo systemctl status nginx`__
+
+![iginx status](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/c15b092b-8ed2-4072-9001-0e501880a431)
+
+
+3
+Checking to see the sever can be accessed 
+
+checking through ubuntu ClI first by 
+` curl http://127.0.0.1:80 `
+
+![access throu cli](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/8b999655-24d2-46e7-8209-8260feed1bde)
+
+Checking through a browswer http://18.234.210.235:80
+
+![nginx ob browser](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/ac09890b-8927-4ef1-b687-0c7f9dce62ad)
+
+
+
+
+ 
+
