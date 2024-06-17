@@ -168,9 +168,92 @@ sudo mysql
 2
 create a new database 
 ```
-mysql> CREATE DATABASE `example_database`;
+CREATE DATABASE `example_database`;
 ```
 ![image](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/aa93dc9d-c5c2-43f7-a2f3-55fcb7111925)
+
+3
+New user 
+```
+CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'theghost';
+```
+![image](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/f5885756-30c2-4910-8b9c-e64f1348cc5a)
+
+4
+Give the user permission the databse:
+```
+GRANT ALL ON example_database.* TO 'example_user'@'%';
+```
+OUTPUT 
+```
+mysql> GRANT ALL ON example_database.* TO 'example_user'@'%';
+Query OK, 0 rows affected (0.01 sec)
+```
+Try to login again with custom user credentials you created:
+```
+mysql -u example_user -p
+```
+![image](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/b368de14-b59b-49fe-80e3-76adcb50f894)
+
+then proceed with checking database with 
+```
+SHOW DATABASE;
+```
+![image](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/eadaf77d-1dc5-461f-b119-100860b4e133)
+
+5
+Create a table named todo_list:
+```
+CREATE TABLE example_database.todo_list (
+mysql>    item_id INT AUTO_INCREMENT,
+mysql>    content VARCHAR(225),
+mysql>    PRIMARY KEY(item_id)
+mysql> );
+```
+![image](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/8d3ebaa8-4b49-4343-8475-3b1eb8c7437b)
+
+6
+Insert into the database:
+```
+INSERT INTO todo_list (content) VALUES 
+("My first important item"),
+("My second item"),
+("My third item");
+
+```
+To confirm we use:
+```
+SELECT * FROM example_database.todo_list;
+```
+![image](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/11349d56-1f6a-4988-a090-bcb1b6af9c38)
+
+7
+Create a script that connects MySQL and PHP:
+```
+vim /var/www/projectLEMP/todo_list.php
+```
+Input this:
+```
+<?php
+$user = "example_user";
+$password = "theGHOST.1";
+$database = "example_database";
+$table = "todo_list";
+
+try {
+  $db = new PDO("mysql:host=localhost;dbname=$databse", $user, $password);
+  echo "<h2>TODO</h2><ol>";
+  foreach($db->query("SELECT content FROM $table") as $row) {
+    echo "<li>" . $row['content'] . "</li>";
+  }
+  echo "</ol>";
+} catch (PDOExecption $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
+
+```
+
 
 
 
