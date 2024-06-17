@@ -26,16 +26,18 @@ Connecting to the Ec2 instance through Gitbash
 ## Step1(Installing Nginx Sever):
 1
 We first update then install Nginx server by using the code below 
-
-__`sudo apt update`
-`sudo apt install nginx`__
+```
+sudo apt update
+sudo apt install nginx
+```
 
 ![installing nginx](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/659c5264-3728-409d-9717-7efd0ae3273d)
 
 2
 Verify that nginx was succesfully installed by using this code.
-
-__`sudo systemctl status nginx`__
+```
+sudo systemctl status nginx
+```
 
 ![iginx status](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/c15b092b-8ed2-4072-9001-0e501880a431)
 
@@ -44,7 +46,9 @@ __`sudo systemctl status nginx`__
 Checking to see the sever can be accessed 
 
 checking through ubuntu ClI first by 
-` curl http://127.0.0.1:80 `
+```
+curl http://127.0.0.1:80
+```
 
 ![access throu cli](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/8b999655-24d2-46e7-8209-8260feed1bde)
 
@@ -56,7 +60,10 @@ Checking through a browswer http://18.234.210.235:80
 ## Step2( Istallin MYSQL):
 
 1
-Install MYSQL with `sudo apt install mysql_sever`
+Install MYSQL with 
+```
+sudo apt install mysql_sever
+```
 
 ![install msql](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/784b0f0d-240e-4ffb-a6eb-909c11611a0e)
 
@@ -67,7 +74,10 @@ Log into MySQL
 
 3
 Set a password for root User
-`ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'theghost';`
+
+```
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'theghost';
+```
 
 ![alterpass](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/0e8fc4ca-48c9-486f-bbbe-1f43fb239e4e)
 
@@ -75,7 +85,9 @@ Set a password for root User
 Running a security script that removes some insecure default settings and lockdown access to your database
 This script is done by this code 
 
-`sudo mysql_secure_installation`
+```
+sudo mysql_secure_installation
+```
 ![securescript](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/13b9c26d-c054-4a34-bed4-af32a42029d1)
 
 I left everything at default settings, apart from the password security level i choose low
@@ -158,6 +170,9 @@ vim /var/www/projectLEMP/info.php
 ```
 copy and paste 
 ![image](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/9ef6ef4a-4b79-4faa-9110-d332efe01070)
+
+![image](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/032239d0-6f0c-472e-b973-4e5a24a010eb)
+
 
 ## step6 (Retrieving data from MySQL database with PHP):
 1 
@@ -253,6 +268,15 @@ try {
 }
 
 ```
+![image](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/b64d2a69-8ba9-44d8-9bce-9a91054924ba)
+
+This show that PHP environment is ready to connect and Interact with your MySQL server.
+
+Thanks for your time!
+
+
+
+
 
 
 
