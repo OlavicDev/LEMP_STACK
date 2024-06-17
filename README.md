@@ -80,6 +80,70 @@ This script is done by this code
 
 I left everything at default settings, apart from the password security level i choose low
 
+5
+Test if you are able to loggin MySQL:
+```
+sudo mysql -p
+```
+![verifysql](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/1ba14ae9-1e73-47e6-81b8-cf6e195a2ff2)
+
+
+##Step3( INstalling PHP ):
+Nginx requires an external program to handle PHP processing and act as a bridge between the PHP interpreter itself and the websever.
+We will need to install php-fpm(PHP fastCGI process manager) and php-mysql( a module that help PHP to communicate with MySQL-based databases
+
+```
+sudo apt install php-fpm php-mysql
+```
+![phpinstall1](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/a55db6b7-7f7d-4769-9ec1-ce9b3f7a996d)
+
+![phpinstall2](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/a8ec6bee-c9ef-4fb7-a915-40a225839e4d)
+
+
+##Step4( Configuration of Nginx to use PHP processor ):
+1
+Create a root web directory for the Domain:
+```
+sudo mkdir /var/www/projectLEMP
+```
+2
+Assign ownership of the directory with the $USER:
+```
+sudo chown -R $USER:$USER /var/wwww/projectLEMP
+```
+3
+Create and open a in Nginx's sites-available:
+```
+sudo vim /etc/nginx/sites-available/projectLEMP
+```
+4
+Then input the following code:
+![inputthis](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/ce7153f4-c0f4-46d2-8f95-a3f59e1f54dc)
+
+5
+Activate your Configuration:
+```
+sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/
+```
+this will tell nginx to use the config next time reloaded.
+
+6
+Test your config:
+```
+sudo nginx -t
+```
+![testngin](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/64f0c665-d571-4c86-8285-3605fda7d69b)
+
+Dissable default Nginx 
+```
+sudo unlink /etc/nginx/sites-enabled/default
+```
+Reload changes:
+```
+sudo systemctl reload nginx
+```
+
+
 
 
 
