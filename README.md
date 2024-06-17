@@ -88,7 +88,7 @@ sudo mysql -p
 ![verifysql](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/1ba14ae9-1e73-47e6-81b8-cf6e195a2ff2)
 
 
-##Step3( INstalling PHP ):
+## Step3( INstalling PHP ):
 Nginx requires an external program to handle PHP processing and act as a bridge between the PHP interpreter itself and the websever.
 We will need to install php-fpm(PHP fastCGI process manager) and php-mysql( a module that help PHP to communicate with MySQL-based databases
 
@@ -100,7 +100,7 @@ sudo apt install php-fpm php-mysql
 ![phpinstall2](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/a8ec6bee-c9ef-4fb7-a915-40a225839e4d)
 
 
-##Step4( Configuration of Nginx to use PHP processor ):
+## Step4( Configuration of Nginx to use PHP processor ):
 1
 Create a root web directory for the Domain:
 ```
@@ -142,11 +142,35 @@ Reload changes:
 ```
 sudo systemctl reload nginx
 ```
+create a file in /var/www/projectLEMP
+```
+sudo touch /var/www/projectLEMP/index.html
+```
+Test in your browser to see if config works perfectly
+![workswell](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/10ca7a68-7d47-4385-848d-81a46177622b)
+ This shows it works well 
 
+## Step5 ( Testing PHP with Nginx ):
+1
+Validate if Nginx can correctly hand .php files off to your processor:
+```
+vim /var/www/projectLEMP/info.php
+```
+copy and paste 
+![image](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/9ef6ef4a-4b79-4faa-9110-d332efe01070)
 
-
-
-
+## step6 (Retrieving data from MySQL database with PHP):
+1 
+Connect to MySQl 
+```
+sudo mysql
+```
+2
+create a new database 
+```
+mysql> CREATE DATABASE `example_database`;
+```
+![image](https://github.com/OlavicDev/LEMP_STACK/assets/124717753/aa93dc9d-c5c2-43f7-a2f3-55fcb7111925)
 
 
 
